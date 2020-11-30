@@ -11,5 +11,7 @@ IDE use #Spyder # JupyterNotebook
 Language Use #Python module used like numpy , panda, Sklearn,pickle.
 
 
+LIVE HOSTED
 
+https://pydev-prediction-diabetes.herokuapp.com/
 
