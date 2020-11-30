@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prediction Algorithm</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+</head>
+
+<body style="background-color:powderblue;">
+ <div class="container" style="background-color:#03fcd7;">
+	<h1>Predict SUV Purchase Using Logistic Regression</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	
+        <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Desription</th>
+        <th>Values</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+      <tr>
+        <td><label for="age">Age:</label></td>
+        <td><input type="text" name="age" placeholder="AGE" class="form-control" required="required" />  </td>
+      </tr>
+      
+          <tr>
+        <td><label for="salary">Salary:</label></td>
+        <td><input type="text" name="salary" placeholder="SALARY" class="form-control" required="required" />  </td>
+      </tr>
+	  
+	    <tr>
+        <td> <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button></td>  
+        <td>   {{ prediction_text }} </td>  
+      </tr> 
+	  </table>  
+    </form>
+
+ <div class="container" style="background-color:#03fcd7;">
+ <h1>Diabetes Prediction Using Random forest</h1>
+  <form action="{{ url_for('predictDb')}}"method="post">
+
+   <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Desription</th>
+        <th>Values</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+      <tr>
+        <td><label for="num_preg">Number of times pregnant:</label></td>
+        <td>  <input  type="number" name="num_preg"  placeholder="0 to 9" min="0" max="9" required="required" class="form-control">
+         <br></td>
+      </tr>
+      
+      <tr>
+        <td><label for="glucose_conc">Glucose:</label></td>
+        <td><input type="number" name="glucose_conc" min="0" max="99" placeholder="0 to 99"  required="required" class="form-control"><br></td> 
+      </tr>
+      
+      <tr>
+        <td> <label for="diastolic_bp">Diastolic blood pressure:</label></td>
+        <td> <input type="number" name="diastolic_bp" min="0" max="122" placeholder="0 to 122"  required="required" class="form-control"><br></td>
+      </tr>
+      
+       <tr>
+        <td><label for="insulin">Insulin:</label></td>
+        <td> <input type="number" name="insulin" min="0" max="846" placeholder="0 to 846"  required="required" class="form-control"><br></td>
+      </tr>
+      
+       <tr>
+        <td> <label for="bmi">Body mass index:</label></td>
+        <td><input type="number" name="bmi"  min="0.0" max="67.1" placeholder="0.0 to 67.1"  required="required" class="form-control"><br></td>
+      </tr>
+      
+       <tr>
+        <td><label for="diab_pred">Diabetes pedigree function:</label></td>
+        <td><input type="number" name="diab_pred"   placeholder="0.5 to 2" required="required" class="form-control"><br></td>
+      </tr>
+      
+       <tr>
+        <td><label for="age">Age:</label></td>
+        <td><input type="number"  name="age"  min="21" max="81" placeholder="21 to 81"  required="required" class="form-control"><br></td>
+      </tr>
+      
+       <tr>
+        <td><label for="skin">Skin Thickness:</label></td>
+        <td> <input type="number" name="skin"  min="0.0" max="3.9006" placeholder="1 to 3.9006"  required="required" class="form-control"><br></td>
+      </tr>
+      
+      <tr>
+        <td><button type="submit" class="btn btn-primary btn-block btn-large">Predict Diabetes</button></td>
+         <td>{{ predictiondb }}</td>
+      </tr>
+      
+       <tr>
+        
+      </tr>
+      
+    </tbody>
+  </table>
+    </form>  
+   
+ </div>
+
+
+</body>
+</html>
